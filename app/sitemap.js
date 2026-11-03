@@ -1,8 +1,10 @@
+
 import { siteConfig } from "@/lib/site";
+
+export const dynamic = "force-static";
 
 export default function sitemap() {
   return [
-    // Main pages
     {
       url: siteConfig.url,
       changeFrequency: "monthly",
@@ -28,54 +30,23 @@ export default function sitemap() {
       changeFrequency: "weekly",
       priority: 0.8,
     },
-
-    // Learn
     {
-      url: `${siteConfig.url}/learn/fundamentals`,
+      url: `${siteConfig.url}/about`,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${siteConfig.url}/learn/five-elements`,
+      url: `${siteConfig.url}/contact`,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
-      url: `${siteConfig.url}/learn/directions`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${siteConfig.url}/learn/spaces`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-
-    // Tools
-    {
-      url: `${siteConfig.url}/tools/compass`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${siteConfig.url}/tools/vastu-map`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${siteConfig.url}/tools/mandala`,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-
-    // Legal
-    {
-      url: `${siteConfig.url}/privacy`,
+      url: `${siteConfig.url}/privacy-policy`,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${siteConfig.url}/terms`,
+      url: `${siteConfig.url}/terms-and-conditions`,
       changeFrequency: "yearly",
       priority: 0.3,
     },
