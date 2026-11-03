@@ -19,6 +19,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { getBreadcrumbSchema, getBlogPostingSchema } from "@/lib/seo/schemas";
 import { seoConfig } from "@/lib/seo/config";
 
+// Static export: only generate routes returned by generateStaticParams()
+export const dynamicParams = false;
+
 // Static Params Useful when blogs are stored locally.
 
 export async function generateStaticParams() {
@@ -48,7 +51,7 @@ export async function generateMetadata({ params }) {
 
   const seo = getSeoForBlog(article);
 
-  const canonicalUrl = `${seoConfig.siteUrl}/blog/${article.slug}`;
+  const canonicalUrl = `${seoConfig.siteUrl}/blog/${article.slug}/`;
 
   const imageUrl = article.coverImage
     ? article.coverImage.startsWith("http")
@@ -61,7 +64,7 @@ export async function generateMetadata({ params }) {
     description: seo.description,
 
     alternates: {
-      canonical: `/blog/${article.slug}`,
+      canonical: `/blog/${article.slug}/`,
     },
 
     robots: {
@@ -182,10 +185,3 @@ export default async function BlogArticlePage({ params }) {
   );
 }
 
-function slugifyForPage(text) {
-  return text
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-");
-}
